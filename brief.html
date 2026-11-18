@@ -114,8 +114,87 @@ body{background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMac
 .nd .t small{display:block;font-size:12px;color:var(--mute);line-height:1.55}
 footer{margin-top:40px;border-top:1px solid var(--line);padding-top:16px;font-size:12px;color:var(--mute);line-height:1.8}
 footer b{color:var(--sub);font-weight:600}
-@media(max-width:900px){.top3,.charts,.views,.mkt2{grid-template-columns:1fr}.env{grid-template-columns:1fr 1fr}.kpi{grid-template-columns:1fr 1fr}.acts{grid-template-columns:1fr 1fr}.liaoning{grid-template-columns:1fr 1fr;row-gap:14px}}
-@media(max-width:560px){.env,.acts,.liaoning{grid-template-columns:1fr}.mast .date{text-align:left}}
+/* ── 手机版：2026-11-18 单独调过，别改成统一的单列长龙 ── */
+.mnav{display:none}
+@media(max-width:900px){
+  body{font-size:14.5px;line-height:1.65}
+  .wrap{padding:0 14px 40px}
+  .mast-in{padding:20px 14px 0}
+  .brand h1{font-size:22px}
+  .mast .date{font-size:11.5px}
+  .print{display:none}
+  .top3wrap{padding:16px 14px 18px}
+  .top3{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;gap:10px;padding-bottom:4px;-webkit-overflow-scrolling:touch}
+  .top3::-webkit-scrollbar{display:none}
+  .t3{flex:0 0 84%;scroll-snap-align:start;padding:12px 14px}
+  .t3 .t{font-size:14.5px}
+  .t3 .d{font-size:12px}
+  /* 吸顶板块导航 */
+  .mnav{display:flex;gap:6px;position:sticky;top:0;z-index:30;overflow-x:auto;
+    background:rgba(251,250,247,.96);backdrop-filter:blur(8px);
+    padding:9px 14px;border-bottom:1px solid var(--line);margin:0 -14px 4px}
+  .mnav::-webkit-scrollbar{display:none}
+  .mnav a{flex:0 0 auto;font-size:12.5px;color:var(--sub);text-decoration:none;
+    border:1px solid var(--line);border-radius:999px;padding:3px 11px;background:#fff}
+  .mnav a:active{background:var(--tag-bg);color:var(--accent)}
+  .sect{margin-top:22px;scroll-margin-top:56px}
+  .hd{margin-bottom:12px;padding-bottom:7px}
+  .hd h2{font-size:17px}
+  .hd .en{display:none}
+  /* 环境 2×2 */
+  .env{grid-template-columns:1fr 1fr;gap:8px}
+  .env .c{padding:11px 12px}
+  .env .v{font-size:13px}
+  .env .note{font-size:11.5px;line-height:1.5}
+  /* 政策：折叠，标题一行 + 摘要两行 */
+  .policy{gap:8px}
+  .p{padding:11px 12px;gap:9px}
+  .p .idx{flex:0 0 22px;height:22px;font-size:10.5px}
+  .p .top{flex-wrap:nowrap;margin-bottom:3px}
+  .p h3{flex:1;min-width:0;font-size:14px;line-height:1.4;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .p .tag{flex:0 0 auto;font-size:10px;padding:0 6px}
+  .p p{font-size:13px;line-height:1.6;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .p.open h3,.p.open p{-webkit-line-clamp:unset;display:block;overflow:visible}
+  .p .more{display:block;margin-top:5px;background:none;border:none;padding:0;
+    font-family:inherit;font-size:12px;color:var(--accent);cursor:pointer}
+  .p .src{margin-top:4px;font-size:11px}
+  /* 市场 */
+  .kpi{grid-template-columns:1fr 1fr;gap:8px;margin-bottom:10px}
+  .kpc{padding:10px 12px}
+  .kpc .v{font-size:19px}
+  .kpc .k{font-size:10.5px}
+  .kpc .d{font-size:11px}
+  .charts{grid-template-columns:1fr;gap:8px}
+  .chart{padding:11px 12px 9px}
+  .mkt2{grid-template-columns:1fr;gap:8px}
+  .mkt th,.mkt td{padding:7px 10px;font-size:12px}
+  .mkt th:last-child,.mkt td:last-child{display:none}
+  .mkt th,.mkt td{font-size:12px}
+  .mkt td.name span{font-size:10px}
+  .liaoning{grid-template-columns:1fr 1fr;gap:10px;padding:12px;row-gap:12px}
+  .ln-item{padding-left:10px}
+  .ln-item .v{font-size:15px}
+  .verdict{padding:11px 13px;font-size:12.5px}
+  /* 解读 */
+  .views{grid-template-columns:1fr;gap:8px}
+  .v{padding:13px 14px}
+  .v .q{font-size:14px;padding-right:0;margin-bottom:7px}
+  .v .q::before{display:none}
+  .v p{font-size:13px;line-height:1.68}
+  /* 建议 2×2 */
+  .acts{grid-template-columns:1fr 1fr;gap:8px}
+  .act{padding:12px 13px}
+  .act .act-h{font-size:13.5px}
+  .act li{font-size:12px}
+  /* 节点 */
+  .nodes{padding:2px 13px}
+  .nd{grid-template-columns:66px 1fr;gap:10px;padding:9px 0;font-size:12.5px}
+  .nd .d{font-size:11.5px;padding-left:7px}
+  .nd .t small{font-size:11px}
+}
+@media(max-width:380px){
+  .env,.acts,.kpi,.liaoning{grid-template-columns:1fr}
+}
 </style></head><body>
 <header class="mast">
   <div class="mast-in">
@@ -128,8 +207,9 @@ footer b{color:var(--sub);font-weight:600}
       <div class="t3"><div class="n">03</div><div class="t">辽宁光伏机制电价 0.20 元落地，收益不能只看这一个数</div><div class="d">机制电量只覆盖集中式 60%、分布式 80%，其余到现货市场卖；午间已出现负价。</div></div></div></div>
 </header>
 <main class="wrap">
+  <nav class="mnav"><a href="#s1">环境</a><a href="#s2">政策</a><a href="#s3">市场</a><a href="#s4">解读</a><a href="#s5">建议</a><a href="#s6">节点</a></nav>
 
-  <section class="sect"><div class="hd"><span class="no">01</span><h2>环境信息</h2><span class="en">Climate &amp; Environment</span></div>
+  <section class="sect" id="s1"><div class="hd"><span class="no">01</span><h2>环境信息</h2><span class="en">Climate &amp; Environment</span></div>
     <div class="env">
       <div class="c"><div class="k">今日天气 · 辽宁</div><div class="v">-3.0℃～+1.1℃</div><div class="note">较昨日明显增强，光照晴朗。</div></div>
       <div class="c"><div class="k">未来三天</div><div class="v">日均 -3℃ → -4℃ → -5℃</div><div class="note">气温变化直接影响采暖负荷与光伏出力。</div></div>
@@ -138,7 +218,7 @@ footer b{color:var(--sub);font-weight:600}
     </div>
   </section>
 
-  <section class="sect"><div class="hd"><span class="no">02</span><h2>政策信息</h2><span class="en">Policy</span></div>
+  <section class="sect" id="s2"><div class="hd"><span class="no">02</span><h2>政策信息</h2><span class="en">Policy</span></div>
     <div class="policy">
       <article class="p"><div class="idx">1</div><div class="bd">
         <div class="top"><h3>欧盟发布 CBAM 已付碳价抵扣细则</h3><span class="tag ">今日</span></div>
@@ -178,7 +258,7 @@ footer b{color:var(--sub);font-weight:600}
       </div></article></div>
   </section>
 
-  <section class="sect"><div class="hd"><span class="no">03</span><h2>市场信息</h2><span class="en">Market</span></div>
+  <section class="sect" id="s3"><div class="hd"><span class="no">03</span><h2>市场信息</h2><span class="en">Market</span></div>
     <div class="kpi"><div class="kpc "><div class="k">CEA · 全国碳配额</div><div class="v">92.04<small>元/吨</small></div><div class="d "><span class="down">-0.68%</span></div></div><div class="kpc "><div class="k">CCER · 自愿减排</div><div class="v">—<small>元/吨</small></div><div class="d ">较 CEA 折价</div></div><div class="kpc "><div class="k">辽宁现货 · 实时</div><div class="v">309<small>元/MWh</small></div><div class="d ">日前 299.39</div></div><div class="kpc "><div class="k">EUA · 欧盟配额</div><div class="v">90.38<small>欧元/吨</small></div><div class="d ">外部市场</div></div><div class="kpc hot"><div class="k">机制电价 · 光伏</div><div class="v">0.20<small>元/千瓦时</small></div><div class="d ">辽宁 2027</div></div><div class="kpc "><div class="k">机制电价 · 风电</div><div class="v">0.30<small>元/千瓦时</small></div><div class="d ">辽宁 2027</div></div><div class="kpc "><div class="k">TOPCon 组件</div><div class="v">0.701<small>元/W</small></div><div class="d ">行业均价</div></div><div class="kpc "><div class="k">容量电价 · 联动档</div><div class="v">370<small>元/千瓦·年</small></div><div class="d ">不联动档 165</div></div></div>
     <div class="charts">
       <div class="chart"><div class="ch-hd"><h3>CEA · 近 12 个交易日</h3><span class="lg">元/吨</span></div>
@@ -203,11 +283,11 @@ footer b{color:var(--sub);font-weight:600}
     <div class="verdict"><b>今日判断：</b>碳价 92.04 元/吨（-0.68%），CCER 相对 CEA 溢价；辽宁现货实时 309 元/MWh，近一日负价时段占比 1.0%；组件 0.701 元/W，走弱。四季度配额清缴前，碳价通常有采购支撑；现货负价时段集中在新能源大发的中午，用电侧可据此安排负荷。<span class="fine">注：行情为最近收盘数据，变动为相邻交易日对比；方向判断仅供参考，不构成交易建议。</span></div>
   </section>
 
-  <section class="sect"><div class="hd"><span class="no">04</span><h2>权威解读</h2><span class="en">Analysis</span></div>
+  <section class="sect" id="s4"><div class="hd"><span class="no">04</span><h2>权威解读</h2><span class="en">Analysis</span></div>
     <div class="views"><article class="v lead"><div class="flag">今日最重要</div><div class="q">欧盟委员会 11-16 发布实施法规 (EU) 2026/2…</div><p>欧盟委员会 11-16 发布实施法规 (EU) 2026/2498，细化 CBAM 第三国"有效已付碳价"抵扣规则，并在附件 II 把中国全国碳排放权交易体系列入"已认可碳价机制清单"（与英国 ETS、韩国 K-ETS、新西兰 ETS、日本 GX-ETS 并列）。</p><p> 中国出口企业可凭经独立核查机构核证的已付碳价，申请扣减应清缴的 CBAM 证书数量，规则追溯适用于 2026-01-01 起的排放、首次在 2027-09-30 前的 CBAM 申报中适用。</p><p>对：这是"算清碳账"从合规义务变成可量化抵扣资产的转折点，出口客户碳成本测算要新增"已付碳价抵扣"一项；但列入清单≠自动全额抵扣——须核证、按 CBAM 系统边界归集、扣除免费配额/补贴/返还，国际碳信用仅限《巴黎协定》第 6 条授权且不超过所覆盖排放的 10%。</p><p>来源为欧委会发布 + ICAP 权威解读，非媒体推测。</p></article><article class="v"><div class="q">辽宁 2027 增量新能源机制竞价"光伏 0.20 元/千瓦…</div><p>辽宁 2027 增量新能源机制竞价"光伏 0.20 元/千瓦时"被两份深度稿拆解出真实风险面：机制电价本质是双向结算价差合约，真正决定项目生死的是机制外电量在现货市场卖什么价——辽宁现货已出现午间负电价时段，光伏出力高度集中在中午，机制外电量的收益侵蚀可能比机制电量价差收窄更致命。</p><p> 同花顺 11-17 稿指出辽宁燃煤基准价 0.3749 元/度、存量机制电量按近 2 年实际发电量比例核定兜底，增量只能拿 0.18—0.30 元竞价区间；北极星 11-16 横向稿给出辽宁光伏 0.200 击穿 2026 年 0.30、降幅超三成。</p><p>对：这是分布式光伏 2027 收益测算必须补的一条——不能只看 0.20 锚定值，要把机制电量比例、出力时序、现货价格分布一起进模型；通知原件与文号仍缺， 不。</p></article><article class="v"><div class="q">生态环境部、市场监管总局联合印发《关于做好地方生态环境标准工…</div><p>生态环境部、市场监管总局联合印发《关于做好地方生态环境标准工作的意见》（环法规〔2026〕72 号，11-16 由市场监管总局发布），三方面十条措施，要求因地制宜研究绿色低碳发展等相关标准、探索跨省重点区域协同地方标准；同时《电力现货市场基本规则（征求意见稿）》意见反馈 11-18 截止（今天），宁夏电力现货+调频两项实施细则公示也于 11-18 17:00 反馈截止。</p><p> 对：地方标准体系规范化、跨省协同，长期利好跨区域经营的合规确定性；现货基本规则三级体系、节点边际电价、新能源与配储联合报价条款以正式稿为准，发文机关与文号（）继续待收录。</p></article></div>
   </section>
 
-  <section class="sect"><div class="hd"><span class="no">05</span><h2>企业操作建议</h2><span class="en">Action</span></div>
+  <section class="sect" id="s5"><div class="hd"><span class="no">05</span><h2>企业操作建议</h2><span class="en">Action</span></div>
     <div class="acts">
       <div class="act"><div class="act-tag">出口企业 · CBAM 覆盖品</div><div class="act-h">先把碳账算清</div><ul><li>梳理出口产品的嵌入排放，确定核算边界</li><li>收集已缴碳价凭证，提前预约有资质核查机构</li><li>2027 年 9 月 30 日前完成首次申报</li></ul></div>
       <div class="act"><div class="act-tag">用电企业 · 工厂与园区</div><div class="act-h">按小时管成本</div><ul><li>午间低价或负价时段，把高耗能工序与检修往低价段挪</li><li>中长期合同价格下限随现货下限，重核保底条款</li><li>自备电、储能按容量电价重估收益</li></ul></div>
@@ -216,10 +296,27 @@ footer b{color:var(--sub);font-weight:600}
     </div>
   </section>
 
-  <section class="sect"><div class="hd"><span class="no">06</span><h2>近期关键节点</h2><span class="en">Calendar</span></div>
+  <section class="sect" id="s6"><div class="hd"><span class="no">06</span><h2>近期关键节点</h2><span class="en">Calendar</span></div>
     <div class="nodes"><div class="nd"><div class="d">11月18日</div><div class="t"><b>《电力现货市场基本规则（公开征求意见稿）》意见反馈截止</b><small>征求意见稿未定稿，不得写「已实施」</small></div></div><div class="nd"><div class="d">11月20日</div><div class="t"><b>EU-UK 峰会（碳市场链接议题）</b><small>地点口径待核</small></div></div><div class="nd"><div class="d">11月23日</div><div class="t"><b>《能源计量与碳计量监督管理办法》公开征求意见截止</b><small></small></div></div><div class="nd"><div class="d">12月01日</div><div class="t"><b>四项产品碳足迹国家标准实施</b><small>出口/供应链披露客户适用</small></div></div><div class="nd"><div class="d">12月05日</div><div class="t"><b>《可再生能源法》修订草案征求意见截止</b><small>二审排期未公布</small></div></div><div class="nd"><div class="d">12月11日</div><div class="t"><b>国管局 2026—2027 年度研究成果征集报送截止</b><small>自筹经费；方向二/三/六为可申报切口</small></div></div></div>
   </section>
 
   <footer><b>数据来源：</b>全国碳排放权交易市场、辽宁电力现货市场、ECMWF 气象预报、公开发布的政策文件。<br>
   <b>说明：</b>本页为信息摘要，行情为最近收盘数据，不构成投资或交易建议。生成于 2026-11-18 09:35。</footer>
-</main></body></html>
+</main>
+<script>
+(function(){
+  if(!window.matchMedia||!window.matchMedia("(max-width:900px)").matches) return;
+  document.querySelectorAll(".p").forEach(function(el){
+    var bd=el.querySelector(".bd"); var ps=el.querySelectorAll("p");
+    if(!bd||!ps.length) return;
+    var btn=document.createElement("button");
+    btn.className="more"; btn.textContent="展开全文";
+    btn.addEventListener("click",function(){
+      el.classList.toggle("open");
+      btn.textContent=el.classList.contains("open")?"收起":"展开全文";
+    });
+    var src=bd.querySelector(".src");
+    if(src){bd.insertBefore(btn,src);}else{bd.appendChild(btn);}
+  });
+})();
+</script></body></html>
